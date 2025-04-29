@@ -1,7 +1,3 @@
-streamlit
-pandas
-random
-time
-datetime
-pytz
-hashlib
+streamlit==1.24.0
+pandas==2.0.3
+pytz==2023.3

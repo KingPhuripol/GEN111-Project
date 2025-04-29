@@ -77,8 +77,8 @@ if 'auth_page' not in st.session_state:
 # Mock user database (in a real app, this would be in a real database)
 if 'user_accounts' not in st.session_state:
     st.session_state.user_accounts = {
-        'Phurinat.pola@kmutt.ac.th': {
-            'password': hashlib.sha256('Nano@2527'.encode()).hexdigest(),
+        'admin': {
+            'password': hashlib.sha256('admin1234'.encode()).hexdigest(),
             'name': 'Phurinat P',
             'student_id': '66070501042'
         }
@@ -189,7 +189,7 @@ def show_login_form():
             if login_user(email, password):
                 st.success("Login successful!")
                 time.sleep(1)
-                st.experimental_rerun()
+                st.rerun()
             else:
                 st.error("Invalid email or password")
     
@@ -207,8 +207,7 @@ def show_login_form():
     # Using a button as a workaround for the JavaScript limitation
     if st.button("Switch to Registration", key="switch_to_register"):
         toggle_auth_page()
-        st.experimental_rerun()
-    
+        st.rerun()    
     st.markdown('</div>', unsafe_allow_html=True)
 
 def show_registration_form():
@@ -232,7 +231,7 @@ def show_registration_form():
             elif register_user(email, password, name, student_id):
                 st.success("Registration successful! Logging you in...")
                 time.sleep(1)
-                st.experimental_rerun()
+                st.rerun()           
             else:
                 st.error("Email already registered")
     
@@ -241,8 +240,7 @@ def show_registration_form():
     # Using a button as a workaround for the JavaScript limitation
     if st.button("Switch to Login", key="switch_to_login"):
         toggle_auth_page()
-        st.experimental_rerun()
-    
+        st.rerun()    
     st.markdown('</div>', unsafe_allow_html=True)
 
 # Main app
@@ -285,8 +283,7 @@ else:
         st.markdown("---")
         if st.button("Log Out"):
             logout_user()
-            st.experimental_rerun()
-
+            st.rerun()
     # Main content - Enhanced tabs
     tabs = st.tabs([
         "🏠 Home", 
@@ -537,8 +534,7 @@ else:
                 st.session_state.user_accounts[st.session_state.current_user]['student_id'] = student_id
                 st.success("Profile updated successfully!")
                 time.sleep(1)
-                st.experimental_rerun()
-                
+                st.rerun()                
             st.markdown("### Security")
             
             with st.expander("Change Password"):
@@ -557,8 +553,7 @@ else:
                         st.session_state.user_accounts[st.session_state.current_user]['password'] = hashlib.sha256(new_password.encode()).hexdigest()
                         st.success("Password updated successfully!")
                         time.sleep(1)
-                        st.experimental_rerun()
-
+                        st.rerun()
             st.markdown("### Registered Users")
             users_df = pd.DataFrame([
                 {
@@ -595,8 +590,7 @@ else:
                     st.success(f"Checked in at {loc['name']}! +{points} points")
                     time.sleep(1)
                     st.session_state.show_checkin = False
-                    st.experimental_rerun()
-            
+                    st.rerun()            
             elif method == "Geolocation":
                 st.markdown("Ensure your location services are enabled")
                 if st.button("Check my location"):
@@ -612,12 +606,10 @@ else:
                     st.success(f"Checked in at {loc['name']}! +{points} points")
                     time.sleep(1)
                     st.session_state.show_checkin = False
-                    st.experimental_rerun()
-            
+                    st.rerun()            
             if st.button("Cancel"):
                 st.session_state.show_checkin = False
-                st.experimental_rerun()
-
+                st.rerun()
     # Rewards modal
     if st.session_state.get('show_rewards', False):
         with st.container():
@@ -627,8 +619,7 @@ else:
                 st.markdown(f"- **{reward['name']}** ({reward['cost']} pts) — {status}")
             if st.button("Close Rewards"):
                 st.session_state.show_rewards = False
-                st.experimental_rerun()
-
+                st.rerun()
     # Leaderboard modal
     if st.session_state.get('show_leaderboard', False):
         with st.container():
@@ -637,8 +628,7 @@ else:
                 st.markdown(f"**#{user['rank']} {user['name']}** — {user['points']} pts (Level {user['level']})")
             if st.button("Close Leaderboard"):
                 st.session_state.show_leaderboard = False
-                st.experimental_rerun()
-
+                st.rerun()
     # Footer
     st.markdown("---")
     st.markdown("© 2025 King Mongkut's University of Technology Thonburi | Study Quest System")

@@ -1,144 +1,196 @@
-Study Quest
-Study Quest is a gamified check-in and rewards system designed for students at King Mongkut's University of Technology Thonburi (KMUTT). Built with Streamlit, this web application encourages students to engage in study activities by earning points for checking in at various campus study locations, participating in campaigns, and redeeming rewards.
-Features
+# 🎓 Study Quest  
+*A gamified check-in and rewards system for KMUTT students*
 
-User Authentication: Secure login and registration with email, password, name, and student ID.
-Check-in System: Earn points by checking in at study locations via QR code or geolocation (simulated in the current version).
-Rewards System: Redeem points for rewards like coffee discounts, bookstore coupons, and more.
-Leaderboard: View top students based on points and levels.
-Campaigns: Participate in special events for bonus points.
-Profile Management: Update personal details and change passwords.
-Responsive UI: Orange-themed interface with tabs for Home, Locations, Campaigns, and Settings.
-Mock Data: Uses mock user data and study locations for demonstration purposes.
+**Study Quest** is a web-based application built with **Streamlit** to motivate students at **King Mongkut's University of Technology Thonburi (KMUTT)** to engage in study activities. Through check-ins, campaigns, and a point-based rewards system, students are rewarded for productive behavior across campus.
 
-Tech Stack
+---
 
-Frontend & Backend: Streamlit
-Programming Language: Python 3.8+
-Libraries:
-streamlit for the web interface
-pandas for data handling
-pytz for timezone support
-hashlib for password hashing
+## 🚀 Key Features
 
+- **🔐 User Authentication**  
+  Register and log in securely using email, password, full name, and student ID.
 
-Deployment: Streamlit Cloud
-Version Control: Git/GitHub
+- **📍 Check-in System**  
+  Earn points by checking in at designated study spots using QR codes or simulated geolocation.
 
-Project Structure
+- **🎁 Rewards System**  
+  Redeem earned points for perks such as:
+  - Coffee discounts  
+  - Bookstore coupons  
+  - Event access and more
+
+- **🏆 Leaderboard**  
+  Track your progress and see how you rank against fellow students.
+
+- **📣 Campaigns**  
+  Join time-limited campaigns to earn bonus points.
+
+- **👤 Profile Management**  
+  Update your personal information or reset your password anytime.
+
+- **📱 Responsive UI**  
+  Streamlit-based orange-themed layout with tabs for:
+  - Home  
+  - Locations  
+  - Campaigns  
+  - Settings
+
+- **🧪 Mock Data**  
+  Pre-loaded users and study locations for demo/testing purposes.
+
+---
+
+## ⚙️ Tech Stack
+
+- **Frontend & Backend:** Streamlit  
+- **Programming Language:** Python 3.8+  
+- **Libraries Used:**
+  - `streamlit` – UI & interactivity  
+  - `pandas` – Data handling  
+  - `pytz` – Timezone management  
+  - `hashlib` – Password hashing  
+
+- **Hosting:** Streamlit Cloud  
+- **Version Control:** Git + GitHub
+
+---
+
+## 📁 Project Structure
+
+```
 study-quest/
 ├── app.py              # Main Streamlit application
 ├── requirements.txt    # Python dependencies
 └── README.md           # Project documentation
+```
 
-Prerequisites
+---
 
-Python 3.8 or higher
-Git
-A GitHub account for deployment
-A Streamlit Cloud account for hosting
+## 💻 Getting Started
 
-Local Setup
+### ✅ Prerequisites
 
-Clone the Repository:
+- Python 3.8 or newer  
+- Git  
+- GitHub account  
+- Streamlit Cloud account  
+
+### 🧪 Local Setup
+
+```bash
+# Clone the repo
 git clone https://github.com/your-username/study-quest.git
 cd study-quest
 
-
-Create a Virtual Environment:
+# Create virtual environment
 python -m venv venv
-source venv/bin/activate  # On Windows: venv\Scripts\activate
+source venv/bin/activate  # Windows: venv\Scripts\activate
 
-
-Install Dependencies:
+# Install dependencies
 pip install -r requirements.txt
 
-
-Run the App:
+# Launch app
 streamlit run app.py
+```
 
-Open http://localhost:8501 in your browser to view the app.
+Open your browser at [http://localhost:8501](http://localhost:8501)
 
-Test Credentials:Use the following mock user to log in:
+### 🔐 Test Login
 
-Email: example.student@kmutt.ac.th
-Password: SecurePass@2025
+```text
+Email:    example.student@kmutt.ac.th  
+Password: SecurePass@2025  
+```
 
+---
 
+## ☁️ Deploying to Streamlit Cloud
 
-Deployment to Streamlit Cloud
+### 1. Push Code to GitHub
 
-Push Code to GitHub:
-
-Create a new repository on GitHub (e.g., study-quest).
-Initialize a local Git repository:git init
+```bash
+git init
 git add app.py requirements.txt
 git commit -m "Initial commit"
 git remote add origin https://github.com/your-username/study-quest.git
 git branch -M main
 git push -u origin main
+```
 
+### 2. Deploy
 
+- Log in at [share.streamlit.io](https://share.streamlit.io)  
+- Click **“New app”**, select your repository  
+- Set branch to `main`, main file to `app.py`  
+- (Optional) Use Python 3.9+  
+- Click **Deploy**  
+- Access the app at `https://your-username-study-quest.streamlit.app`
 
+---
 
-Deploy on Streamlit Cloud:
+## 🧩 Troubleshooting
 
-Log in to share.streamlit.io with your GitHub account.
-Click "New app" and select your study-quest repository.
-Set the branch to main and the main file to app.py.
-(Optional) In Advanced settings, specify Python 3.9 or higher.
-Click "Deploy" and wait for the app to build.
-Access the app at the provided URL (e.g., https://your-username-study-quest.streamlit.app).
+- Check deployment logs  
+- Ensure all libraries are in `requirements.txt`  
+- Ensure external services (e.g., QR code API) are reachable
 
+---
 
-Troubleshooting:
+## 📌 App Usage Overview
 
-Check deployment logs for errors.
-Ensure requirements.txt includes all dependencies.
-Verify internet access for external resources (e.g., QR code API).
+| Section      | Description |
+|--------------|-------------|
+| 🔑 Login/Register | Register or log in using your KMUTT email |
+| 📍 Check-in      | Simulated check-in at Library, Co-working Space, etc. |
+| 🎁 Rewards       | Browse and redeem available rewards |
+| 🏆 Leaderboard   | View ranking of top students |
+| 📣 Campaigns     | Join special time-based events for extra points |
+| ⚙️ Settings      | Edit profile, change password, view registered users |
 
+---
 
+## ⚠️ Notes for Developers
 
-Usage
+- **Mock Data:** Stored in `st.session_state`; switch to a real DB (e.g., SQLite/PostgreSQL) for production  
+- **QR & Geolocation:** Currently simulated; integrate actual QR scanner/geolocation APIs for production  
+- **Security:** Uses `hashlib.sha256` — replace with `bcrypt` in production  
+- **JS Limitation:** Login/register logic uses buttons due to Streamlit’s JavaScript limitations
 
-Login/Register: Use an email and password to log in or create an account.
-Check-in: Simulate checking in at study locations (e.g., Library, Co-working Space) to earn points.
-View Rewards: Redeem points for rewards and track claimed rewards.
-Leaderboard: See your rank among top students.
-Campaigns: Participate in special events for bonus points.
-Settings: Update your profile, change your password, or view registered users.
+---
 
-Notes
+## 🔮 Future Enhancements
 
-Mock Data: The app uses st.session_state for mock user data, check-ins, rewards, and leaderboards. For production, integrate a database (e.g., SQLite, PostgreSQL).
-QR Code & Geolocation: Check-ins are simulated. Implement real QR code scanning and geolocation APIs for production.
-Security: Passwords are hashed with hashlib.sha256. Consider using bcrypt for stronger security in production.
-JavaScript Limitation: Login/registration toggling uses buttons due to Streamlit’s JavaScript constraints.
+- Real database integration  
+- QR code and GPS-based check-ins  
+- Stronger password hashing & rate limiting  
+- In-app notifications  
+- Custom themes & language support  
 
-Future Improvements
+---
 
-Integrate a real database for user and check-in data.
-Add real QR code scanning functionality.
-Implement geolocation-based check-ins with privacy compliance.
-Enhance security with stronger password hashing and rate-limiting.
-Add notifications for campaigns and rewards.
-Support custom themes and multilingual interfaces.
+## 🤝 Contributing
 
-Contributing
+1. Fork this repo  
+2. Create your feature branch: `git checkout -b feature/your-feature`  
+3. Commit changes: `git commit -m "Add your feature"`  
+4. Push to GitHub: `git push origin feature/your-feature`  
+5. Open a pull request  
 
-Fork the repository.
-Create a new branch (git checkout -b feature/your-feature).
-Commit your changes (git commit -m "Add your feature").
-Push to the branch (git push origin feature/your-feature).
-Open a pull request.
+---
 
-License
-This project is licensed under the MIT License. See the LICENSE file for details.
-Contact
-For questions or feedback, contact:
+## 📜 License
 
-Developer: Phurinat P
-Email: example.student@kmutt.ac.th
+Licensed under the **MIT License**. See the `LICENSE` file for details.
 
+---
+
+## 📬 Contact
+
+**Developer:** Phurinat P  
+**Email:** example.student@kmutt.ac.th
+
+---
 
 © 2025 King Mongkut's University of Technology Thonburi | Study Quest System
+
+---
